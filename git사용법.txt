@@ -1,0 +1,94 @@
+### 깃허브 계정 삭제하는 방법  ###
+먼저 삭제하고자 하는 계정으로 로그인을 합니다. 
+오른쪽 상단의 프로필 이미지를 클릭하고 하단의 Settings를 클릭합니다. 
+설정 페이지에서 왼쪽 사이드바의 Account를 선택합니다.
+Account 설정 제일 아래에는 Delete account 섹션이 있습니다. 
+Delete yout account 버튼을 클릭하면 계정 삭제가 진행됩니다.
+정말 계정을 삭제하는지 확인하기 위해 두 개의 입력창을 채워야합니다. 
+첫 번째 입력창에는 계정 이름이나 이메일을 입력합니다. 
+두 번째 입력창에는 delete my account를 입력합니다. 
+정확히 입력하면 하단의 Cancle plan and delete this account 버튼이 활성화 됩니다.
+
+※주의사항
+깃 사용시 pull을 먼저 해야 나중에 깃허브 repository와 완변하게 sync가능.
+ 만약 push부터하면 push만 가능하다.
+----------------------
+
+### 처음으로 로컬 폴더와 깃허브 레파지토리 연결하기 ###
+0.연결할 로컬 폴더 만들기
+1.폴더에서 우클릭->Git bash here
+2.git init 입력하면 폴더에 .git이 생긴다
+3.폴더와 깃허브를 연결해야 한다
+4.git remote add origin 레파지토리 주소
+  아무말도 안나오면 성공!!!
+5.git pull origin master
+  그런데 이런 오류가 발생하면 깃허브에서 기본 생성 branch 이름이 달라서이다.
+      "fatal: couldn't find remote ref master"
+
+  해결법:1)깃허브에서 main 옆 "branch"클릭
+          (Default branch 이름이 main으로 되어 있다.)
+       2)연필 아이콘 클릭
+       3)팝업창에 master 입력후 Rename branch 클릭
+
+### 로컬 자료를 깃허브 레파지토리에 push ###
+1.git add .
+  "."은 로컬 폴더 전체를 sync하겠다는 뜻
+2.git commit -m "메시지"
+3.git push origin master
+
+### 레파지토리를 로컬에 pull하기 ###
+1.git pull origin master
+
+
+
+---------------------------동영상 내용 정리----------------
+
+1.폴더에서 우클릭->Git bash here
+2.git init 입력하면 폴더에 .git이 생긴다
+3.폴더와 깃허브를 연결해야 한다
+git remote add origin 레파지토리 주소
+    주소는 깃허브에서 복사하고 우클릭해서 paste로 붙인다.
+git remote add origin https://github.com/holykes/test1.git
+4.폴더의 임의의 파일을 하나 만들어 본다.
+5.폴더와 깃 레포지터리의 싱크상태 확인해보기
+git status
+6.모든 파일을 트랙킹하도록 아래 명령 입력
+git add .
+7.깃에 push할 때 커밋을 해야한다. 적당한 메시지를 적으면 된다.
+git commit -m "메시지"
+git commit -m "첫 번째 커밋"
+8.변경 내용을 push해야 올라간다
+git push origin master
+  push할 때 업로드시 권한이 필요하므로 id, 비번을 넣으면 된다.
+9.push 결과 확인을 위해 깃허브에서 새로고침한다.
+  push한 파일들이 보인다.
+
+
+# 다른 사람 git 가져오기
+1.pull할 폴더를 만든다.
+2.우클릭 git bash here
+3.git init
+4.git remote add origin 레파지토리 주소
+5.git pull origin master
+ 오류 fatal: couldn't find remote ref master의 원인은 깃허브에서 
+기본 생성 branch 이름이 달라서이다. 
+ 해결: main 옆 "branch"클릭-Default branch 이름이 main으로 되어 있다.
+      연필 아이콘 클릭-> 팝업창에 master 입력후 Rename branch클릭
+
+
+# 수정사항 올려보기
+1.push할 폴더에 파일을 아무거나 변경한다.
+2.git bash here
+3.git status
+4.git commit -m "두 번째 커밋"
+5.git push origin master
+  로그인이 뜨면 한다.
+6.깃허브 레파지토리에서 변경한 파일을 선택하고 상단에 있는 "history"클릭하면 커밋한 내역이 표시된다.
+# 깃허브 내에서 파일을 수정가능하다.
+  수정할 파일을 edit 눌러서 수정한 후 화면 아래에 있는
+  Commit changes 에 첫 번째 상자에 적당한 메시지를 적고 "Commit changes"클릭한다.
+7.현재 깃에서 수정한 내용이 있어서 로컬 폴더와 내용이 다르다. 깃이 최신 업데이트가 발생한 상황이다. 깃을 로컬 폴더에 땡겨와야 한다.
+git pull origin master
+
+
+https://github.com/holykes/test1
